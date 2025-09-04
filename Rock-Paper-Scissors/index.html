@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper scissors</title>
+    <link rel="stylesheet" href="rock-paper-scissors-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"></script>
+  </head>
+  <body>
+    <div id="vanta-bg"></div>
+      <div class="game-box">
+        <p class="title"> Rock Paper Scissors</p>
+
+        <button onclick="
+          playGame('rock');
+        " class="move-button">
+          <img class="move-icon" src="Graphic/rock-icon.png">
+        </button>
+        
+        <button onclick="
+          playGame('paper'); 
+        " class="move-button">
+          <img class="move-icon" src="Graphic/paper-icon.png">
+        </button>
+        
+        
+        <button onclick="
+          playGame('scissors');
+        " class="move-button">  
+          <img class="move-icon" src="Graphic/scissors-icon.png">
+        </button>
+
+        <p class="js-result result">Pick your move</p>
+        <p class="js-moves moves">Good luck</p>
+        <p class="js-score score"></p>
+
+        <button class ="reset-button" onclick="
+          score.wins = 0;
+          score.losses = 0;
+          score.ties = 0;
+          localStorage.removeItem('score');
+          updateScoreElement();
+        ">Reset Score</button>
+
+        <button class="auto-play-button" onclick="
+          autoPlay();
+        ">Auto play</button>
+      </div>
+    <script src="rock-paper-scissors-script.js"></script>
+    <script>
+    VANTA.FOG({
+      el: "#vanta-bg",
+      highlightColor: 0xf99639,
+      midtoneColor: 0xf9ea0d,
+      lowlightColor: 0xef20a6,
+      baseColor: 0xe3e3bf, 
+      blurFactor: 0.5,
+      zoom: 1,
+      speed: 1
+    });
+  </script>
+  </body>
+</html>
